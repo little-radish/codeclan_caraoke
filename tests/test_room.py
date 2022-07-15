@@ -11,8 +11,10 @@ from src.room import Room
 class TestRoom(unittest.TestCase):
 
     def setUp(self):
-        self.roombig = Room("Big Room", 10)
-        self.roomsmall = Room("Wee Room", 2)
+        self.room_big = Room("Big Room", 10)
+        self.room_small = Room("Wee Room", 2)
         
-    def test_blank(self):
-        pass
+    def test_room_set_up(self):
+        self.assertEqual("Big Room", self.room_big.name)
+        self.assertEqual(10, self.room_big.max_capacity)        
+

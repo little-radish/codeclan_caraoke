@@ -5,3 +5,5 @@ class Room:
         self.max_capacity = max_capacity
         self.playlist = []
         self.occupants = []
+
+

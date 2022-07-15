@@ -16,5 +16,6 @@ class TestGuest(unittest.TestCase):
         self.guest3 = Guest("Apollo", 10)
         self.guest4 = Guest("Gumshoe", 0)
 
-    def test_blank(self):
-        pass
+    def test_guest_set_up(self):
+        self.assertEqual("Edgeworth", self.guest1.name)
+        self.assertEqual(500, self.guest1.wallet) 
