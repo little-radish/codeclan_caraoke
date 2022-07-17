@@ -1,5 +1,17 @@
 class Guest:
 
-    def __init__(self, name, wallet):
+    def __init__(self, name, wallet, favourite_song):
         self.name = name
         self.wallet = wallet
+        self.favourite_song = favourite_song
+
+
+    def guest_reaction(self, room):
+
+        for song in room.playlist:
+
+            if song.name == self.favourite_song.name:
+                return "Woohoo"
+
+
+        return "thanks, what time do you close? soon, right?"

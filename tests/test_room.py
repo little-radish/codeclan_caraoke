@@ -1,10 +1,3 @@
-######################################################
-###                                                ###
-##  REMEMBER: start test function names with test   ##
-###                                                ###
-######################################################
-
-
 import unittest
 
 from src.room import Room
@@ -19,11 +12,11 @@ class TestRoom(unittest.TestCase):
         
     def test_room_set_up(self):
         self.assertEqual("Big Room", self.room.name)
-        self.assertEqual(10, self.room.max_capacity)      
+
 
     def test_check_guest_into_room(self):
-        guest_large_wallet = Guest("Edgeworth", 500)
-        guest_small_wallet = Guest("Gumshoe", 9)
+        guest_large_wallet = Guest("Edgeworth", 500, Song("Welcome to the Black Parade", "My Chemical Romance", "Emo"))
+        guest_small_wallet = Guest("Gumshoe", 9, Song("Welcome to the Black Parade", "My Chemical Romance", "Emo"))
 
         self.room.check_guest_into_room(guest_large_wallet)
         self.assertEqual(490, self.room.occupants[0].wallet)
@@ -31,15 +24,14 @@ class TestRoom(unittest.TestCase):
         self.room.check_guest_into_room(guest_small_wallet)
         self.assertEqual("I'm sorry, entry is £10.", self.room.check_guest_into_room(guest_small_wallet))
 
+
+
         self.room.occupants.clear()
         self.room.max_capacity = 0
 
         self.room.check_guest_into_room(guest_large_wallet)
         self.assertEqual("I'm sorry, that room can host 0 guests and there are 0 people in there.", self.room.check_guest_into_room(guest_large_wallet))
-
-
-
-
+        
 
     def test_add_song_to_playlist(self):
         song = Song("Ray", "Passcode", "Metal")
