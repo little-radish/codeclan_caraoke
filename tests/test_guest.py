@@ -26,7 +26,12 @@ class TestGuest(unittest.TestCase):
         # testing against first guest whose favourite song is in the playlist
 
         guest2 = Guest("Gumshoe", "9", Song("Feel Special", "TWICE", "K-Pop"))
-        # creating a second guest whose favourite song is NOT in the playlist
+        # creating a second guest whose favourite song is NOT in the playlist and is not Stairway
 
         guest2.guest_reaction(room)
         self.assertEqual("thanks, what time do you close? soon, right?", guest2.guest_reaction(room))
+
+        guest3 = Guest("Wayne Campbell", 100, Song("Stairway To Heaven", "Led Zeppelin", "Prog"))
+
+        guest3.guest_reaction(room)
+        self.assertEqual("No Stairway? Denied??", guest3.guest_reaction(room))
